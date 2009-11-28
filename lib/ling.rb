@@ -1,7 +1,7 @@
 module ScrubDict
   class Ling
     def self.scrub(word)
-      begin       
+      begin
         result = Scrubyt::Extractor.define do
           fetch URI.escape("http://www2.ling.pl/lingfeed-ps.php?word=#{word}&sType=0&chooseLang=1")
           dicts "//div" do
@@ -13,6 +13,7 @@ module ScrubDict
       rescue
         result = nil
       end
-    end  
+    end
   end
 end
+

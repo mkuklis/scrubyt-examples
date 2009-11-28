@@ -1,7 +1,7 @@
 module ScrubDict
   class Dict
     def self.scrub(word)
-      begin    
+      begin
         result = Scrubyt::Extractor.define do
           fetch URI.escape("http://www.dict.pl/dict?word=#{word}&lang=EN")
           name "//td[@class='resWordCol']", :write_text => true do
@@ -15,3 +15,4 @@ module ScrubDict
     end
   end
 end
+
